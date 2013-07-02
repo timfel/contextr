@@ -90,7 +90,7 @@ module ContextR # :nodoc:
             def #{method_name}(*arguments, &block)
               ContextR::on_core_method_called(
                 self,
-                ObjectSpace._id2ref(#{klass.object_id}), 
+                Object.const_get(:#{klass}),
                 :#{method_name},
                 arguments, block)
             end

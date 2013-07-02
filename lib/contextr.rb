@@ -2,7 +2,7 @@ module ContextR
 end
 
 # vendor code by rails and Cristian Neukirchen and _why
-%w{active_support_subset dynamic}.each { |file|
+%w{dynamic}.each { |file|
       require File.dirname(__FILE__) + "/ext/#{file}" }
 
 # modules that encapsulate certain simple aspects

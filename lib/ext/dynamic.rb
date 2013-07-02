@@ -8,6 +8,14 @@
 # http://chneukirchen.org/talks/euruko-2005/chneukirchen-euruko2005-contextr.pdf
 #
 # (c) 2005 - Christian Neukirchen - http://chneukirchen.org
+unless Thread.respond_to? :main
+  class Thread
+    class << self
+      alias main current
+    end
+  end
+end
+
 module Dynamic
   module ClassMethods #:nodoc:
     Thread.main[:DYNAMIC] = Hash.new { |hash, key|

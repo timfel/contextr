@@ -1,5 +1,17 @@
 require "thread"
 module MutexCode #:nodoc:
+  unless defined? Mutex
+    class Mutex
+      def synchronize
+        yield
+      end
+
+      def locked?
+        false
+      end
+    end
+  end
+
   def semaphore
     @semaphore ||= Mutex.new
   end
